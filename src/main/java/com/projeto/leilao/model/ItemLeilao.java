@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,13 +27,12 @@ public class ItemLeilao {
 	
 	@Column(nullable = false, precision = 19, scale = 2)
 	private BigDecimal valorAtual;
-	private Long usuarioVencedorId;
 	
 	@Column(nullable = false)
 	private LocalDateTime tempoFim;
-	private long tempoRestanteSegundos;
+	private Long usuarioVencedorId;
 	
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private StatusLeilao status;
 	
