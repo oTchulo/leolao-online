@@ -18,28 +18,35 @@ import lombok.Data;
 @Table(name = "item_leilao")
 @Data
 public class ItemLeilao {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String name;
-	private String descricao;
-	
-	@Column(nullable = false, precision = 19, scale = 2)
-	private BigDecimal valorAtual;
-	
-	@Column(nullable = false)
-	private LocalDateTime tempoFim;
-	private Long usuarioVencedorId;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(nullable = false)
-	private StatusLeilao status;
-	
-	@Version
-	private Long version;
-	
-	
-	
-	
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String descricao;
+
+    @Column(nullable = false, precision = 19, scale = 2)
+    private BigDecimal valorAtual;
+
+    @Column(nullable = false)
+    private LocalDateTime tempoFim;
+
+    @Column(nullable = false)
+    private Long usuarioVencedorId; 
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StatusLeilao status; 
+
+    @Version 
+    private Long version;
+
+
+    public enum StatusLeilao {
+        ABERTO,
+        ENCERRADO
+        
+        
+    }
 }
